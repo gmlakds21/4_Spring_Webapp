@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sungjuk3">
+    <insert id="insertSungJuk" statementType="PREPARED"
+            parameterType="seunghee.spring.mvc._01_20_02_SungJuk3.SungJuk_VO">
+        insert into Sungjuk (name,kor,eng,mat,tot,mean,grd)
+        values (#{name},#{kor},#{eng},#{mat},#{tot},#{mean},#{grd})
+    </insert>
+
+    <select id="selectList" statementType="PREPARED"
+            resultType="seunghee.spring.mvc._01_20_02_SungJuk3.SungJuk_VO">
+        select sjno,name,kor,eng,mat,regdate from Sungjuk order by sjno
+    </select>
+
+    <select id="selectOne" statementType="PREPARED"
+            parameterType="String" resultType="seunghee.spring.mvc._01_20_02_SungJuk3.SungJuk_VO">
+        select * from Sungjuk where sjno=#{sjno}
+    </select>
+
+    <update id="updateSungJuk" statementType="PREPARED"
+            parameterType="seunghee.spring.mvc._01_20_02_SungJuk3.SungJuk_VO">
+        update Sungjuk set kor=#{kor},eng=#{eng},mat=#{mat},tot=#{tot},mean=#{mean},grd=#{grd},regdate=sysdate() where sjno=#{sjno}
+    </update>
+
+    <delete id="deleteSungJuk" statementType="PREPARED"
+            parameterType="int">
+        delete from Sungjuk where sjno=#{sjno}
+    </delete>
+</mapper>
