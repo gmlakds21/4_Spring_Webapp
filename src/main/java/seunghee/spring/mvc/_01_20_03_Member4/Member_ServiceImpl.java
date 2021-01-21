@@ -45,8 +45,6 @@ public class Member_ServiceImpl implements Member_Service{
 
     public Member_VO readOneMember(String userid) {
 
-        Member_VO mvo = mdao.selectOneMember(userid);
-
-        return mvo;
+        return mdao.selectOneMember(userid);
     }
 }

@@ -62,15 +62,45 @@ public class _01_20_02_SungJuk_Controller {
     }
 
     @GetMapping("/sungjukview")
-    public ModelAndView sungjukview(int sjno) {
+    public ModelAndView sungjukview(String sjno) {
+        ModelAndView mv = new ModelAndView();
+
+        mv.setViewName("01_20_02_Sungjuk3/sungjukview");
+        mv.addObject("sj", sjsrv13.readOneSungJuk(sjno));
+
+        return mv;
+    }
+
+    @GetMapping("/sungjukdel")
+    public String sungjukdel(String sjno) {
+
+        sjsrv13.removeSungJuk(sjno);
+
+        // 성적 데이터를 삭제하고 난 뒤, /sungjuklist 로 이동
+        return "redirect:/sungjuklist";
+    }
+
+    @GetMapping("/sungjukupd")
+    public ModelAndView sungjukupd(String sjno) {
 
         ModelAndView mv = new ModelAndView();
 
+        mv.setViewName("01_20_02_Sungjuk3/sungjukupd");
+        mv.addObject("sj", sjsrv13.readOneSungJuk(sjno));
 
-
-        return null;
+        return mv;
     }
 
+    // 수정할 성적데이터를 전송 받아서
+    // sungjuk 테이블에 적용하고, sungjuklist 로 redirect 함
+    @PostMapping("/sungjukupdok")
+    public String sungjukupdok(SungJuk_VO sj) {
+
+        System.out.println(sjsrv13.modifySungJuk(sj));
+        // 특정 매서드가 return 한 결과를 콘솔에서 확인
+
+        return "redirect:/sungjuklist";
+    }
 
 
 }

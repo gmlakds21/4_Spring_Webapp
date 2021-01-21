@@ -7,5 +7,5 @@ public interface SungJuk_DAO {
     List<SungJuk_VO> selectSungJuk();
     SungJuk_VO selectOneSungJuk(String sjno);
     String updateSungJuk(SungJuk_VO sj);
-    String deleteSungJuk(int sjno);
+    String deleteSungJuk(String sjno);
 }

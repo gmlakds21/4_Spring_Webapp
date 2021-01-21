@@ -38,7 +38,7 @@ public class SungJuk_DAOImpl implements SungJuk_DAO {
         return result;
     }
 
-    public String deleteSungJuk(int sjno) {
+    public String deleteSungJuk(String sjno) {
         String result = "성적데이터 삭제처리중...?!?";
 
         int cnt = sqlSession.delete("sungjuk3.deleteSungJuk", sjno);

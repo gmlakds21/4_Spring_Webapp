@@ -26,7 +26,7 @@
     </update>
 
     <delete id="deleteSungJuk" statementType="PREPARED"
-            parameterType="int">
+            parameterType="String">
         delete from Sungjuk where sjno=#{sjno}
     </delete>
 </mapper>

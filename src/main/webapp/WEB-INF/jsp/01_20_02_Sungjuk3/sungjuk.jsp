@@ -1,10 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
-    <title>신입 회원</title>
+    <title>성적 관리</title>
 </head>
 <body>
-    <h1>회원 처리 프로그램</h1>
+    <h1>성적 처리 프로그램</h1>
     <form name="sjfrm" method="post" action="/sungjukok">
         <div>이름 : <input type="text" name="name"></div>
         <div>국어 : <input type="text" name="kor"></div>

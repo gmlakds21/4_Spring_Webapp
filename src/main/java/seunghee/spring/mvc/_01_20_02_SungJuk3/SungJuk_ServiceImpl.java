@@ -32,29 +32,19 @@ public class SungJuk_ServiceImpl implements SungJuk_Service {
     }
 
     public List<SungJuk_VO> readSungJuk() {
-
         return sjdao13.selectSungJuk();
     }
 
-    public SungJuk_VO readOneSungJuk() {
-
-//        SungJuk_VO sj = sjdao13.selectOneSungJuk(sjno);
-
-        return null;
+    public SungJuk_VO readOneSungJuk(String sjno) {
+        return sjdao13.selectOneSungJuk(sjno);
     }
 
-    public String modifySungJuk() {
-
-
-//        String result = sjdao13.updateSungJuk(sj);
-
-        return null;
+    public String modifySungJuk(SungJuk_VO sj) {
+        computeSungJuk(sj);
+        return sjdao13.updateSungJuk(sj);
     }
 
-    public String removeSungJuk() {
-
-//        String result = sjdao13.deleteSungJuk(sjno);
-
-        return null;
+    public String removeSungJuk(String sjno) {
+        return sjdao13.deleteSungJuk(sjno);
     }
 }
