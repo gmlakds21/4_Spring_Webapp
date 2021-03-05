@@ -10,19 +10,21 @@ import org.springframework.web.servlet.ModelAndView;
 public class _01_19_01_Index_Controller {
 
     // 호출방법 : http://localhost:8080/
-    @GetMapping("/") // action 매서드
-    public String index() {
+    @GetMapping("/basic") // action 매서드
+    public ModelAndView index() {
         // 비지니스 로직 처리, view 리턴
-        return "01_19_01/index";
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("01_19_03/index"); // 뷰 지정
         /* 뷰 리졸버 정의문에 의해
          * 머릿말(prefix), 꼬릿말(suffix)을 조합해서 뷰 렌더링
          * /WEB-INF/jsp/ + index + .jsp
          */
+        return mv;
     }
 
     // 위와 아래가 같다. 예전엔 이렇게 선언함
     // 호출방법 : http://localhost:8080/hello
-    @RequestMapping(value="/hello", method = RequestMethod.GET)
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public ModelAndView hello() {
 
         ModelAndView mv = new ModelAndView();

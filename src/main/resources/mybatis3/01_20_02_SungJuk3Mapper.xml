@@ -22,7 +22,8 @@
 
     <update id="updateSungJuk" statementType="PREPARED"
             parameterType="seunghee.spring.mvc._01_20_02_SungJuk3.SungJuk_VO">
-        update Sungjuk set kor=#{kor},eng=#{eng},mat=#{mat},tot=#{tot},mean=#{mean},grd=#{grd},regdate=sysdate() where sjno=#{sjno}
+        update Sungjuk set kor=#{kor},eng=#{eng},mat=#{mat},tot=#{tot},mean=#{mean},grd=#{grd},regdate=sysdate() where
+        sjno=#{sjno}
     </update>
 
     <delete id="deleteSungJuk" statementType="PREPARED"

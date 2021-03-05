@@ -19,15 +19,24 @@ public class SungJuk_ServiceImpl implements SungJuk_Service {
     }
 
     public void computeSungJuk(SungJuk_VO sj) {
-        sj.setTot( sj.getKor() + sj.getEng() + sj.getMat() );
-        sj.setMean( (double)sj.getTot() / 3 );
-        switch((int)(sj.getMean() / 10)) {
+        sj.setTot(sj.getKor() + sj.getEng() + sj.getMat());
+        sj.setMean((double) sj.getTot() / 3);
+        switch ((int) (sj.getMean() / 10)) {
             case 10:
-            case 9: sj.setGrd('수'); break;
-            case 8: sj.setGrd('우'); break;
-            case 7: sj.setGrd('미'); break;
-            case 6: sj.setGrd('양'); break;
-            default: sj.setGrd('가');
+            case 9:
+                sj.setGrd('수');
+                break;
+            case 8:
+                sj.setGrd('우');
+                break;
+            case 7:
+                sj.setGrd('미');
+                break;
+            case 6:
+                sj.setGrd('양');
+                break;
+            default:
+                sj.setGrd('가');
         }
     }
 

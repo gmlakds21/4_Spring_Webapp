@@ -12,22 +12,12 @@
     <util:properties id="jdbc" location="WEB-INF/jdbc.properties"/>
 
     <!-- dbcp datasource -->
-        <!-- Sungjuk -->
-        <!--
-        <bean id="dbcpDataSource"
-              class="org.apache.commons.dbcp2.BasicDataSource"
-              p:driverClassName="org.mariadb.jdbc.Driver"
-              p:url="jdbc:mariadb://maria-db.coqecfviusin.ap-northeast-2.rds.amazonaws.com:3306/Sungjuk"
-              p:username="Sungjuk"
-              p:password="Sungjuk2020" />
-        -->
-        <!-- Member -->
-        <bean id="dbcpDataSource"
-              class="org.apache.commons.dbcp2.BasicDataSource"
-              p:driverClassName="org.mariadb.jdbc.Driver"
-              p:url="jdbc:mariadb://maria-db.coqecfviusin.ap-northeast-2.rds.amazonaws.com:3306/spring4"
-              p:username="spring4"
-              p:password="spring42020" />
+    <bean id="dbcpDataSource"
+          class="org.apache.commons.dbcp2.BasicDataSource"
+          p:driverClassName="${DRV}"
+          p:url="{$URL}"
+          p:username="${USR}"
+          p:password="${PWD}"/>
 
 
     <!-- myBatis : Session -->
@@ -35,12 +25,12 @@
     <bean id="sqlSessionFactory"
           class="org.mybatis.spring.SqlSessionFactoryBean"
           p:dataSource-ref="dbcpDataSource"
-          p:mapperLocations="classpath:mybatis3/01_20_03_Member4Mapper.xml" />
-                                    <!-- /*Mapper 로 선언하면 모든 Mapper 를 호출-->
+          p:mapperLocations="classpath:mybatis3/01_21_01_Member4Mapper.xml"/>
+    <!-- /*Mapper 로 선언하면 모든 Mapper 를 호출-->
     <!-- myBatis3 설정 #2 -->
     <bean id="sqlSession"
           class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg ref="sqlSessionFactory" index="0" />
+        <constructor-arg ref="sqlSessionFactory" index="0"/>
     </bean>
 
 </beans>
